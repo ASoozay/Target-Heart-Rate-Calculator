@@ -15,10 +15,14 @@ public class PatientPortal {
     public static final int currentYear = 2024;
     public static void main(String[] args){
         Scanner console = new Scanner(System.in);
+        HeartRates patientHeartRate = new HeartRates("First Name", "Last Name", 0, currentYear);
 
         welcome();
+        patientInfo(console, patientHeartRate);
         System.out.println();
-        patientInfo(console);
+        printPatientInfo(patientHeartRate);
+
+       
     }
 
     
@@ -32,44 +36,28 @@ public class PatientPortal {
     }
 
 
-    // method: patientInfo (void)
-    // purpose: takes in the patient's information, creates a HeartRates object with patient info, and prints out the patient's info and target heart rate
-    // parameters:  (1) console (Scanner) : scanner that collects the patient information
-    public static void patientInfo(Scanner console){
-        System.out.println();
+    public static void patientInfo(Scanner console, HeartRates phr){
         System.out.println("Please provide your information below");
-        System.out.print("First Name: ");
-        String firstName = console.nextLine();
-        System.out.print("Last Name: ");
-        String lastName = console.nextLine();
-        System.out.print("Birth Year: ");
-        int birthYear = console.nextInt();
-        console.nextLine();
-
-        HeartRates userHeartRate = new HeartRates(firstName, lastName, birthYear, currentYear);
-
         System.out.println();
-        printInfo(userHeartRate);
+
+        System.out.print("First Name: ");
+        phr.setFirstName(console.nextLine());
+        System.out.print("Last Name: ");
+        phr.setLastName(console.nextLine());
+        System.out.print("Birth Year: ");
+        phr.setBirthYear(console.nextInt());
+        console.nextLine();
     }
 
-
-    // method: printInfo (void)
-    // purpose: prints out the patient's information
-    // parameters:  (1) uhr (HeartRates) : HeartRates object that gets first name, last name, year of birth, and calculates age, max. heart rate, and target heart rate.
-    public static void printInfo(HeartRates uhr){
-        String firstName = uhr.getFirstName();
-        String lastName = uhr.getLastName();
-        int birthYear = uhr.getBirthYear();
-        
-        int age = uhr.calculateAge(birthYear, currentYear);
-        int mhr = uhr.calculateMaxHeartRate(age);
-        String thr = uhr.targetHeartRate(mhr);
-
+    public static void printPatientInfo(HeartRates phr){
         System.out.println("Patient Information");
-        System.out.println("First name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Age: " + age);
-        System.out.println("Maximum Heart Rate: " + mhr);
-        System.out.println(thr);
+        System.out.println();
+
+        System.out.println("First Name: " + phr.getFirstName());
+        System.out.println("Last Name: " + phr.getLastName());
+        System.out.println("Age: " + phr.calculateAge());
+        System.out.println("Target Heart Rate: " + phr.targetHeartRate());
+
     }
+    
 }

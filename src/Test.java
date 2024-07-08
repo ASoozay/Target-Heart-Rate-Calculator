@@ -10,6 +10,7 @@
 
 public class Test {
     
+    
     public static void main(String[] args){
     
         //Test #1
@@ -19,8 +20,8 @@ public class Test {
 
         System.out.println("First Name" + andrew.getFirstName());
         System.out.println("Last Name: " + andrew.getLastName());
-        System.out.println("Age: " + andrew.calculateAge(andrew.getBirthYear(), andrew.getCurrentYear()));
-        System.out.println(andrew.targetHeartRate(andrew.calculateMaxHeartRate(andrew.calculateAge(andrew.getBirthYear(), andrew.getCurrentYear()))));
+        System.out.println("Age: " + andrew.calculateAge());
+        System.out.println(andrew.targetHeartRate());
 
         System.out.println();
         System.out.println();
@@ -33,7 +34,7 @@ public class Test {
         HeartRates change = new HeartRates("FN1", "LN1", 500, 2000);
         System.out.println("First Name: " + change.getFirstName());
         System.out.println("Last Name: " + change.getLastName());
-        System.out.println("Age: " + change.calculateAge(change.getBirthYear(), change.getCurrentYear()));
+        System.out.println("Age: " + change.calculateAge());
 
         change.setFirstName("FN2");
         change.setLastName("LN2");
@@ -44,7 +45,7 @@ public class Test {
 
         System.out.println("First Name: " + change.getFirstName());
         System.out.println("Last Name: " + change.getLastName());
-        System.out.println("Birth Year: " + change.calculateAge(change.getBirthYear(), change.getCurrentYear()));
+        System.out.println("Birth Year: " + change.calculateAge());
 
     }
 
