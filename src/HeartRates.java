@@ -120,7 +120,7 @@ public class HeartRates {
         int target50 = calculateMaxHeartRate() * 50/100;
         int target85 = calculateMaxHeartRate() * 85/100;
 
-        String targetHeartRate = "Target Heart Rate: " + target50 + " - " + target85;
+        String targetHeartRate = target50 + " - " + target85;
 
         return targetHeartRate;
     }
