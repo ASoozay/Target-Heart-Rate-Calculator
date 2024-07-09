@@ -1,4 +1,4 @@
-More updates are here to Target Heart Rate Calculator, now with a new feature! If Mr. Chris is reading this, this Version has an extra feature, saveInfo. Version 2 has no extra features, and is the base assignment
+More updates are here to Target Heart Rate Calculator, now with a new feature! If Mr. Criss is reading this, this Version has an extra feature, saveInfo. Version 2 has no extra features, and is the base assignment
 
 PatientPortal.java: 
 - new method: saveInfo(extra feature)
