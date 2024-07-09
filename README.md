@@ -1,18 +1,13 @@
-## Getting Started
+More updates are here to Target Heart Rate Calculator, now with a new feature! If Mr. Chris is reading this, this Version has an extra feature, saveInfo. Version 2 has no extra features, and is the base assignment
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+PatientPortal.java: 
+- new method: saveInfo(extra feature)
+- saveInfo prints the patient's info to a .txt file, so their information is not lost after the program ends
+- Users can now add as many patient's as they like! When a patient's information is added and printed, the user can type "Yes" to add more patients, and "No" to exit the program
+- Maximum Heart Rate is now added to the information that is printed to the terminal, inside of printInfo.
 
-## Folder Structure
+HeartRates.java:
+- targetHeartRate now only has the 50% and 85% heart rate values in its returned String, removing the "Target Heart Rate". So, "Target Heart Rate" is no longer mistakenly printed twice during printInfo.
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+  That's all for now!
+  - Andrew
