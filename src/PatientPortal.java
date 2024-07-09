@@ -78,6 +78,7 @@ public class PatientPortal {
         System.out.println("First Name: " + phr.getFirstName());
         System.out.println("Last Name: " + phr.getLastName());
         System.out.println("Age: " + phr.calculateAge());
+        System.out.println("Maximum Heart Rate: " + phr.calculateMaxHeartRate());
         System.out.println("Target Heart Rate: " + phr.targetHeartRate());
     }
     
