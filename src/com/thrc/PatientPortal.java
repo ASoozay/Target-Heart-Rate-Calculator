@@ -1,5 +1,4 @@
 package com.thrc;
-import java.util.*;
 
 // Andrew Sousa
 // 7/4/24
@@ -11,10 +10,11 @@ import java.util.*;
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+import java.io.*;
+import java.util.*;
 
 public class PatientPortal {
     public static final int currentYear = 2024;
-    
     public static void main(String[] args) throws FileNotFoundException {
         Scanner console = new Scanner(System.in);
         HeartRates patientHeartRate = new HeartRates("First Name", "Last Name", 0, currentYear);
@@ -24,7 +24,6 @@ public class PatientPortal {
 
         welcome();
 
-        // allows user to enter patient info until they type "no".
         while (!use.equalsIgnoreCase("No")){
         patientInfo(console, patientHeartRate);
         System.out.println();
@@ -35,6 +34,8 @@ public class PatientPortal {
         System.out.print("Type \"Yes\" to add another patient, or \"No\" to exit: ");
         use = console.nextLine();
         }
+
+       
     }
 
     
@@ -43,49 +44,58 @@ public class PatientPortal {
     // parameters: none
     public static void welcome(){
         System.out.println("Welcome to the Patient Heart Portal!");
+        System.out.println();
         System.out.println("Enter some information below, and get all the info on your heart.");
         System.out.println("Disclaimer: The Patient Heart Portal is not medically licensed and should be taken as medical advice. Don't sue us!");
+        System.out.println();
     }
 
 
     // method: patientInfo (void)
-    // purpose: takes in the patient's information, creates a HeartRates object with patient info, and prints out the patient's info and target heart rate
-    // parameters:  (1) console (Scanner) : scanner that collects the patient information
-    public static void patientInfo(Scanner console){
+    // purpose: takes patient's info, and sets the values for the HeartRates object
+    // parameters:  (1) console (Scanner): scanner that takes in patient's info
+    //              (2) phr (HeartRates): HeartRates object that the patient's information is set to
+    public static void patientInfo(Scanner console, HeartRates phr){
         System.out.println();
         System.out.println("Please provide your information below");
-        System.out.print("First Name: ");
-        String firstName = console.nextLine();
-        System.out.print("Last Name: ");
-        String lastName = console.nextLine();
-        System.out.print("Birth Year: ");
-        int birthYear = console.nextInt();
-        console.nextLine();
-
-        HeartRates userHeartRate = new HeartRates(firstName, lastName, birthYear, currentYear);
-
         System.out.println();
-        printInfo(userHeartRate);
+
+        System.out.print("First Name: ");
+        phr.setFirstName(console.nextLine());
+        System.out.print("Last Name: ");
+        phr.setLastName(console.nextLine());
+        System.out.print("Birth Year: ");
+        phr.setBirthYear(console.nextInt());
+        console.nextLine();
+        System.out.println();
     }
 
 
-    // method: printInfo (void)
+    // method: printPatientInfo (void)
     // purpose: prints out the patient's information
-    // parameters:  (1) uhr (HeartRates) : HeartRates object that gets first name, last name, year of birth, and calculates age, max. heart rate, and target heart rate.
-    public static void printInfo(HeartRates uhr){
-        String firstName = uhr.getFirstName();
-        String lastName = uhr.getLastName();
-        int birthYear = uhr.getBirthYear();
-        
-        int age = uhr.calculateAge(birthYear, currentYear);
-        int mhr = uhr.calculateMaxHeartRate(age);
-        String thr = uhr.targetHeartRate(mhr);
-
+    // parameters:  (1) phr (HeartRates): HeartRates object where the patient's information is stored
+    public static void printPatientInfo(HeartRates phr){
         System.out.println("Patient Information");
-        System.out.println("First name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Age: " + age);
-        System.out.println("Maximum Heart Rate: " + mhr);
-        System.out.println(thr);
+        System.out.println();
+        System.out.println("First Name: " + phr.getFirstName());
+        System.out.println("Last Name: " + phr.getLastName());
+        System.out.println("Age: " + phr.calculateAge());
+        System.out.println("Maximum Heart Rate: " + phr.calculateMaxHeartRate());
+        System.out.println("Target Heart Rate: " + phr.targetHeartRate());
     }
+    
+
+    // method: saveInfo (void)
+    // purpose: saves the patient's information by printing to a text file
+    // parameters:  (1) saveInfo (PrintStream): the PrintStream object used to print to the patientInfo.txt file
+    //              (2) phr (HeartRates): the HeartRates object where the patient's information is stored.
+    public static void saveInfo(PrintStream saveInfo, HeartRates phr){
+        saveInfo.print("First Name: " + phr.getFirstName() + "  /   ");
+        saveInfo.print("Last Name: " + phr.getLastName() +   "  /   ");
+        saveInfo.print("Birth Year: " + phr.getBirthYear() + "  /   ");
+        saveInfo.print("Maximum Heart Rate: " + phr.calculateMaxHeartRate() + "  /  ");
+        saveInfo.print("Target Heart Rate: " + phr.targetHeartRate() + "  /  ");
+        saveInfo.println();
+    }
+    
 }
