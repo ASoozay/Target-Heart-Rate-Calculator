@@ -1,1 +1,1 @@
-This is the first version. For the most updated version, use Version 4!
+This is the first version. For the most updated version, use Version 6!
