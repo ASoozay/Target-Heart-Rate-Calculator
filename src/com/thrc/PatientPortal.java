@@ -15,12 +15,26 @@ import java.util.*;
 public class PatientPortal {
     public static final int currentYear = 2024;
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner console = new Scanner(System.in);
+        HeartRates patientHeartRate = new HeartRates("First Name", "Last Name", 0, currentYear);
+        File patientFile = new File("patientInfo.txt");
+        PrintStream infoSaver = new PrintStream(patientFile);
+        String use = "Yes";
 
         welcome();
+
+        // allows user to enter patient info until they type "no".
+        while (!use.equalsIgnoreCase("No")){
+        patientInfo(console, patientHeartRate);
         System.out.println();
-        patientInfo(console);
+        printPatientInfo(patientHeartRate);
+        saveInfo(infoSaver, patientHeartRate);
+        System.out.println();
+        System.out.println("Would you like to add another patient?");
+        System.out.print("Type \"Yes\" to add another patient, or \"No\" to exit: ");
+        use = console.nextLine();
+        }
     }
 
     
