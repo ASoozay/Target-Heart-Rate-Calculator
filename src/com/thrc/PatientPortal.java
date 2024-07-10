@@ -14,6 +14,7 @@ import java.util.*;
 
 public class PatientPortal {
     public static final int currentYear = 2024;
+    
     public static void main(String[] args){
         Scanner console = new Scanner(System.in);
 
