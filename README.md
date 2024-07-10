@@ -1,1 +1,1 @@
-This is the first version. For the most updated version, use Version 6!
+This is the first, unfinished version. For the most updated version, use Version 6!
