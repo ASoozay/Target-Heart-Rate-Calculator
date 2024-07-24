@@ -1,9 +1,7 @@
 package com;
 
-// Andrew Sousa
+// Andrew Soozay
 // 7/4/24
-// CS 145
-// Programming Assignment 2: Target Heart Rate Calculator
 // PatientPortal.java
 
 // PatientPortal.java is a heart rate calculating program. The user enters some information  (first name, last name, year of birth), and the program prints out their info, as well as their target heart rate based on their age.
