@@ -1,9 +1,7 @@
 package com;
 
-// Andrew Sousa
+// Andrew Soozay
 // 7/4/24
-// CS 145
-// Programming Assignment 2
 // HeartRates.java
 
 // HeartRates.java is a class that creates an object for PatientPortal.java. It gets/sets the patient's first name, last name, birth year, and current year.
