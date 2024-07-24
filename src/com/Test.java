@@ -1,9 +1,7 @@
 package com;
 
-// Andrew Sousa
+// Andrew Soozay
 // 7/4/24
-// CS 145
-// Programming Assignment 2
 // Test.java
 
 //Test.java is a place where the user can test the HeartRates object
@@ -17,12 +15,12 @@ public class Test {
         //Test #1
         // crates object with first name, last name, birth year, and current year
         // then prints out patient's info
-        HeartRates andrew = new HeartRates("Andrew", "Sousa", 2003, 2024);
+        HeartRates user = new HeartRates("First", "Name", 2003, 2024);
 
-        System.out.println("First Name" + andrew.getFirstName());
-        System.out.println("Last Name: " + andrew.getLastName());
-        System.out.println("Age: " + andrew.calculateAge());
-        System.out.println(andrew.targetHeartRate());
+        System.out.println("First Name" + user.getFirstName());
+        System.out.println("Last Name: " + user.getLastName());
+        System.out.println("Age: " + user.calculateAge());
+        System.out.println(user.targetHeartRate());
 
         System.out.println();
         System.out.println();
